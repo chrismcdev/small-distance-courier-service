@@ -6,20 +6,20 @@ import { EstimateDeliveryCostInput, EstimateDeliveryTimeInput } from "./types";
 import estimateDeliveryCostSchema from "./assets/estimate-delivery-cost-schema.json";
 import estimateDeliveryTimeSchema from "./assets/estimate-delivery-time-schema.json";
 
-enum Command {
-  DELIVERY_TIME = "delivery-time",
-  DELIVERY_COST = "delivery-cost",
+enum Action {
+  GET_DELIVERY_TIME = "delivery-time",
+  GET_DELIVERY_COST = "delivery-cost",
 }
 
 const ajv = new Ajv();
-const [command, filePath] = process.argv.slice(2);
+const [action, filePath] = process.argv.slice(2);
 
 readFile(filePath, { encoding: "utf-8" })
   .then((file) => {
     const data = JSON.parse(file);
 
     // Estimate Delivery Cost
-    if (command === Command.DELIVERY_COST) {
+    if (action === Action.GET_DELIVERY_COST) {
       const validate = ajv.compile<EstimateDeliveryCostInput>(
         estimateDeliveryCostSchema
       );
@@ -34,7 +34,7 @@ readFile(filePath, { encoding: "utf-8" })
     }
 
     // Estimate Delivery Time
-    if (command === Command.DELIVERY_TIME) {
+    if (action === Action.GET_DELIVERY_TIME) {
       const validate = ajv.compile<EstimateDeliveryTimeInput>(
         estimateDeliveryTimeSchema
       );
