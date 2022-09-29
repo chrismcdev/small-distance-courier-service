@@ -1,0 +1,24 @@
+{
+  "$schema": "../../src/assets/estimate-delivery-cost-schema.json",
+  "baseDeliveryCost": 100,
+  "parcels": [
+    {
+      "id": "PKG1",
+      "weight": 5,
+      "distance": 5,
+      "couponCode": "OFR001"
+    },
+    {
+      "id": "PKG2",
+      "weight": 15,
+      "distance": 5,
+      "couponCode": "OFR002"
+    },
+    {
+      "id": "PKG3",
+      "weight": 10,
+      "distance": 100,
+      "couponCode": "OFR003"
+    }
+  ]
+}

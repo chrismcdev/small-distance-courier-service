@@ -1,0 +1,39 @@
+{
+  "$schema": "../../src/assets/estimate-delivery-time-schema.json",
+  "baseDeliveryCost": 100,
+  "noOfVehicles": 2,
+  "maxSpeed": 70,
+  "maxCarriableWeight": 200,
+  "parcels": [
+    {
+      "id": "PKG1",
+      "weight": 50,
+      "distance": 30,
+      "couponCode": "OFR001"
+    },
+    {
+      "id": "PKG2",
+      "weight": 75,
+      "distance": 125,
+      "couponCode": "OFR008"
+    },
+    {
+      "id": "PKG3",
+      "weight": 175,
+      "distance": 100,
+      "couponCode": "OFR003"
+    },
+    {
+      "id": "PKG4",
+      "weight": 110,
+      "distance": 60,
+      "couponCode": "OFR002"
+    },
+    {
+      "id": "PKG5",
+      "weight": 155,
+      "distance": 95,
+      "couponCode": "NA"
+    }
+  ]
+}

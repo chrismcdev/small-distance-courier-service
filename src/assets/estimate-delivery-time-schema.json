@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Estimate Delivery Time Input",
+  "type": "object",
+  "required": [
+    "baseDeliveryCost",
+    "noOfVehicles",
+    "maxSpeed",
+    "maxCarriableWeight",
+    "parcels"
+  ],
+  "properties": {
+    "baseDeliveryCost": {
+      "$id": "#root/baseDeliveryCost",
+      "title": "Base Delivery Cost",
+      "type": "integer",
+      "examples": [100],
+      "default": 0
+    },
+    "noOfVehicles": {
+      "$id": "#root/noOfVehicles",
+      "title": "Number of Vehicles",
+      "type": "integer",
+      "examples": [2],
+      "default": 0
+    },
+    "maxSpeed": {
+      "$id": "#root/maxSpeed",
+      "title": "Maximum Speed",
+      "type": "integer",
+      "examples": [70],
+      "default": 0
+    },
+    "maxCarriableWeight": {
+      "$id": "#root/maxCarriableWeight",
+      "title": "Maximum Carriable Weight",
+      "type": "integer",
+      "examples": [200],
+      "default": 0
+    },
+    "parcels": {
+      "$id": "#root/parcels",
+      "title": "Parcels",
+      "type": "array",
+      "default": [],
+      "items": {
+        "$id": "#root/parcels/items",
+        "title": "Items",
+        "type": "object",
+        "required": ["id", "weight", "distance", "couponCode"],
+        "properties": {
+          "id": {
+            "$id": "#root/parcels/items/id",
+            "title": "Parcel ID",
+            "type": "string",
+            "examples": ["PKG1"],
+            "default": ""
+          },
+          "weight": {
+            "$id": "#root/parcels/items/weight",
+            "title": "Parcel Weight in Kilograms",
+            "type": "integer",
+            "examples": [50],
+            "default": 0
+          },
+          "distance": {
+            "$id": "#root/parcels/items/distance",
+            "title": "Parcel Distance in Kilometers",
+            "type": "integer",
+            "examples": [30],
+            "default": 0
+          },
+          "couponCode": {
+            "$id": "#root/parcels/items/couponCode",
+            "title": "Coupon Code",
+            "type": "string",
+            "examples": ["OFR001"],
+            "default": ""
+          }
+        }
+      }
+    }
+  }
+}

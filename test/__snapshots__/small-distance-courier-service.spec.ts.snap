@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SmallDistanceCourierService fetchDeliveryCost returns the correct delivery cost for each parcel 1`] = `
+[
+  {
+    "discount": 0,
+    "id": "PKG1",
+    "totalDeliveryCost": 750,
+  },
+  {
+    "discount": 0,
+    "id": "PKG2",
+    "totalDeliveryCost": 1475,
+  },
+  {
+    "discount": 0,
+    "id": "PKG3",
+    "totalDeliveryCost": 2350,
+  },
+  {
+    "discount": 105,
+    "id": "PKG4",
+    "totalDeliveryCost": 1395,
+  },
+  {
+    "discount": 0,
+    "id": "PKG5",
+    "totalDeliveryCost": 2125,
+  },
+]
+`;
+
+exports[`SmallDistanceCourierService fetchDeliveryTime returns the correct delivery time for each parcel 1`] = `
+[
+  {
+    "discount": 105,
+    "estimatedDeliveryTimeInHours": 0.85,
+    "id": "PKG4",
+    "totalDeliveryCost": 1395,
+  },
+  {
+    "discount": 0,
+    "estimatedDeliveryTimeInHours": 1.78,
+    "id": "PKG2",
+    "totalDeliveryCost": 1475,
+  },
+  {
+    "discount": 0,
+    "estimatedDeliveryTimeInHours": 1.42,
+    "id": "PKG3",
+    "totalDeliveryCost": 2350,
+  },
+  {
+    "discount": 0,
+    "estimatedDeliveryTimeInHours": 4.19,
+    "id": "PKG5",
+    "totalDeliveryCost": 2125,
+  },
+  {
+    "discount": 0,
+    "estimatedDeliveryTimeInHours": 3.98,
+    "id": "PKG1",
+    "totalDeliveryCost": 750,
+  },
+]
+`;
