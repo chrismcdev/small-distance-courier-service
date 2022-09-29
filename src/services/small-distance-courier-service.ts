@@ -4,15 +4,18 @@ import { DispatchedParcel, IParcel } from "../types";
 import { packParcelsIntoShipments, truncateNumber } from "../helpers";
 import { COUPONS } from "../constants";
 
+/**
+ * Class representing the small distance courier service.
+ */
 export default class SmallDistanceCourierService {
   public baseDeliveryCost: number;
   public parcels: Map<string, Parcel>;
   public coupons: Map<string, Coupon>;
 
   /**
-   *
-   * @param baseDeliveryCost
-   * @param parcels
+   * Create the small distance courier service.
+   * @param baseDeliveryCost Base delivery cost on all parcels to be dispatched.
+   * @param parcels Parcels to be dispatched.
    */
   constructor(baseDeliveryCost: number, parcels: IParcel[]) {
     this.baseDeliveryCost = baseDeliveryCost;
