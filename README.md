@@ -1,6 +1,8 @@
-# Small Distance Courier Service
+<h1 align="center">✨ Kiki's Delivery Service CLI ✨</h1>
 
-Below you will find some information on how to setup and perform common tasks.
+<p align="center">Below you will find some information on how to setup and perform common tasks.</p>
+
+<img width="33.33%" src="https://static.wikia.nocookie.net/studio-ghibli/images/5/5e/Kiki%27s_Delivery_Service_-_Map.jpg"><img width="33.33%" src="https://static.wikia.nocookie.net/studio-ghibli/images/c/cd/Kiki%27s_Delivery_Service_-_Koriko_Market.jpg"><img width="33.33%" src="https://static.wikia.nocookie.net/studio-ghibli/images/d/df/Kiki%27s_Delivery_Service_-_Risoto.jpg/revision/latest/scale-to-width-down/1000?cb=20200615220447" />
 
 ## Installation
 
