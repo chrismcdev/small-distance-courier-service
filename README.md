@@ -47,11 +47,15 @@ small-distance-courier-cli delivery-time ./test/__mocks__/fetch-delivery-time-in
 
 ### JSON Schema Validation
 
-Validates input file with [JSON Schema](https://json-schema.org/specification.html) specific to each feature, schemas can be [found here](./src/assets/).
+The input file is validated with [JSON Schema](https://json-schema.org/specification.html) specific to each feature, schemas can be [found here](./src/assets/).
 
 ### Facade Structural Design Pattern
 
 The facade [`SmallDistanceCourierService`](./src/services/small-distance-courier-service.ts) has two sub-systems [`Parcel`](./src/entities/parcel.ts) and [`Coupon`](./src/entities/coupon.ts) that are instantiated within the facade. This facade manages the full lifecycle of the objects it uses.
+
+### First-fit-decreasing Bin Packing Algorithm
+
+The [FFD algorithm](https://en.wikipedia.org/wiki/First-fit-decreasing_bin_packing) is used to decide how many shipments are needed and what parcels to pack in each shipment based on weight.
 
 ---
 
