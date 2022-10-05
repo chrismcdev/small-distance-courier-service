@@ -4,18 +4,20 @@ import Parcel from "../entities/parcel";
 import SmallDistanceCourierService from "../small-distance-courier-service";
 
 describe("Helpers", () => {
-  let service: SmallDistanceCourierService = new SmallDistanceCourierService(
-    chance.integer({ min: 0 }),
-    []
-  );
-  let parcels: Parcel[] = Array(50).fill(
-    new Parcel(service, {
-      id: chance.syllable(),
-      distance: chance.integer({ min: 0 }),
-      weight: chance.integer({ min: 0 }),
-      couponCode: chance.syllable(),
-    })
-  );
+  let service: SmallDistanceCourierService;
+  let parcels: Parcel[];
+
+  beforeEach(() => {
+    service = new SmallDistanceCourierService(chance.integer({ min: 0 }), []);
+    parcels = Array(50).fill(
+      new Parcel(service, {
+        id: chance.syllable(),
+        distance: chance.integer({ min: 0 }),
+        weight: chance.integer({ min: 0 }),
+        couponCode: chance.syllable(),
+      })
+    );
+  });
 
   describe("loadParcelsIntoShipments", () => {
     it(`returns shipments where the remaining weight on a shipment is larger than the proceeding shipments`, () => {
