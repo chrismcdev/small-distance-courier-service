@@ -9,7 +9,7 @@
     }
   ],
   "bin": {
-    "small-distance-courier-cli": "./src/index.ts"
+    "kiki": "./src/index.ts"
   },
   "scripts": {
     "test": "jest"

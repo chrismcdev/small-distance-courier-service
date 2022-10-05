@@ -18,7 +18,7 @@ yarn link
 ## CLI Usage
 
 ```yaml
-Usage: small-distance-courier-cli <action> <file>
+Usage: kiki <action> <file>
 ```
 
 ## Features
@@ -30,7 +30,7 @@ Estimate the total delivery cost of each package with an offer code (if applicab
 **Example:**
 
 ```bash
-small-distance-courier-cli delivery-cost ./test/__mocks__/fetch-delivery-cost-input.json
+kiki delivery-cost ./src/__mocks__/fetch-delivery-cost-input.json
 ```
 
 ### Delivery Time Estimation
@@ -40,7 +40,7 @@ Calculates the estimated delivery time for every package by maximizing number of
 **Example:**
 
 ```bash
-small-distance-courier-cli delivery-time ./test/__mocks__/fetch-delivery-time-input.json
+kiki delivery-time ./src/__mocks__/fetch-delivery-time-input.json
 ```
 
 ## Decisions
@@ -55,8 +55,8 @@ The facade [`SmallDistanceCourierService`](./src/services/small-distance-courier
 
 ### First-fit-decreasing Bin Packing Algorithm
 
-The [FFD algorithm](https://en.wikipedia.org/wiki/First-fit-decreasing_bin_packing) is used to decide how many shipments are needed and what parcels to pack in each shipment based on weight.
+The [FFD algorithm](https://en.wikipedia.org/wiki/First-fit-decreasing_bin_packing) is used to decide how many shipments are needed and what parcels to load in each shipment based on weight.
 
 ---
 
-_© 2021 Everest Engineering. All Rights Reserved. For Internal Use Only._
+_© 2022 Everest Engineering. All Rights Reserved. For Internal Use Only._
