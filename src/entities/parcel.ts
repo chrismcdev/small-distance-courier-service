@@ -1,21 +1,25 @@
-import { COST_PER_KG, COST_PER_KM } from "../constants";
-import SmallDistanceCourierService from "../services/small-distance-courier-service";
+import SmallDistanceCourierService from "../small-distance-courier-service";
+import { truncateNumber } from "../helpers";
 import { IParcel } from "../types";
+import { COST_PER_KG, COST_PER_KM } from "../constants";
 
 /**
  * Class representing a parcel.
  */
 export default class Parcel {
-  id: string;
-  weight: number;
-  distance: number;
-  couponCode: string;
+  private readonly context: SmallDistanceCourierService;
+  public id: string;
+  public weight: number;
+  public distance: number;
+  public couponCode: string;
 
   /**
    * Create a parcel.
+   * @param context The parent service that instantiated this object.
    * @param parcel Parcel values.
    */
-  constructor(parcel: IParcel) {
+  constructor(context: SmallDistanceCourierService, parcel: IParcel) {
+    this.context = context;
     this.id = parcel.id;
     this.weight = parcel.weight;
     this.distance = parcel.distance;
@@ -23,12 +27,10 @@ export default class Parcel {
   }
 
   /**
-   * The discount percentage of the coupon.
-   * @param SmallDistanceCourierService The parent service that instantiated this object.
-   * @returns The discount percentage if the coupon is provided and valid.
+   * The discount percentage of the coupon, if the coupon was provided and valid.
    */
-  getDiscountPercentage({ coupons }: SmallDistanceCourierService) {
-    const coupon = coupons.get(this.couponCode);
+  private get discountPercentage() {
+    const coupon = this.context.coupons.get(this.couponCode);
     return coupon?.isCouponValid({
       weight: this.weight,
       distance: this.distance,
@@ -38,22 +40,29 @@ export default class Parcel {
   }
 
   /**
-   * The base delivery cost of the parcel.
-   * @param SmallDistanceCourierService The parent service that instantiated this object.
-   * @returns The delivery cost excluding discount.
+   * The delivery amount of the parcel excluding discount.
    */
-  getDeliveryCost({ baseDeliveryCost }: SmallDistanceCourierService) {
+  private get deliveryCost() {
     return (
-      baseDeliveryCost + this.weight * COST_PER_KG + this.distance * COST_PER_KM
+      this.context.baseDeliveryCost +
+      this.weight * COST_PER_KG +
+      this.distance * COST_PER_KM
     );
   }
 
   /**
-   * The base delivery time of the parcel.
-   * @param maxSpeed Maximum speed at which the parcel can be delivered.
-   * @returns The delivery time in hours.
+   * The discount amount.
    */
-  getDeliveryTime(maxSpeed: number) {
-    return this.distance / maxSpeed;
+  public get discount() {
+    return truncateNumber(this.deliveryCost * this.discountPercentage);
+  }
+
+  /**
+   * The total delivery amount.
+   */
+  public get totalDeliveryCost() {
+    return truncateNumber(
+      this.deliveryCost - this.deliveryCost * this.discountPercentage
+    );
   }
 }

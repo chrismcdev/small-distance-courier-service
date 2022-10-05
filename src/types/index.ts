@@ -1,5 +1,3 @@
-import Parcel from "../entities/parcel";
-
 export type ConditionMap = {
   [conditionName: string]: [minValue: number, maxValue: number];
 };
@@ -17,10 +15,17 @@ export interface IParcel {
   couponCode: string;
 }
 
-export interface Shipment {
-  parcels: Parcel[];
-  weight: number;
-  distance: number;
+export interface DeliveryCostPayload {
+  baseDeliveryCost: number;
+  parcels: IParcel[];
+}
+
+export interface DeliveryTimePayload {
+  baseDeliveryCost: number;
+  parcels: IParcel[];
+  noOfVehicles: number;
+  maxSpeed: number;
+  maxCarriableWeight: number;
 }
 
 export interface DispatchedParcel {
@@ -30,15 +35,7 @@ export interface DispatchedParcel {
   estimatedDeliveryTimeInHours?: number;
 }
 
-export interface EstimateDeliveryCostInput {
-  baseDeliveryCost: number;
-  parcels: IParcel[];
-}
-
-export interface EstimateDeliveryTimeInput {
-  baseDeliveryCost: number;
-  parcels: IParcel[];
-  noOfVehicles: number;
-  maxSpeed: number;
-  maxCarriableWeight: number;
+export enum CliAction {
+  GET_DELIVERY_TIME = "delivery-time",
+  GET_DELIVERY_COST = "delivery-cost",
 }

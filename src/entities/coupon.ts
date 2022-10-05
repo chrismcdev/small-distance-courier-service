@@ -24,11 +24,9 @@ export default class Coupon {
    * @returns True if the coupon is valid.
    */
   isCouponValid(conditionValues: { [conditionName: string]: number }): boolean {
-    return Object.entries(this.conditions).every(
-      ([conditionName, [min, max]]) => {
-        const value = conditionValues[conditionName];
-        return value >= min && value <= max;
-      }
-    );
+    return Object.entries(this.conditions).every(([conditionName, [min, max]]) => {
+      const value = conditionValues[conditionName];
+      return value >= min && value <= max;
+    });
   }
 }
