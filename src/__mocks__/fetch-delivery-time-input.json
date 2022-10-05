@@ -1,5 +1,5 @@
 {
-  "$schema": "../../src/assets/estimate-delivery-time-schema.json",
+  "$schema": "../assets/estimate-delivery-time-schema.json",
   "baseDeliveryCost": 100,
   "noOfVehicles": 2,
   "maxSpeed": 70,

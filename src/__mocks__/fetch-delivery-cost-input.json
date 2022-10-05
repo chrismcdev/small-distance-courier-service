@@ -1,5 +1,5 @@
 {
-  "$schema": "../../src/assets/estimate-delivery-cost-schema.json",
+  "$schema": "../assets/estimate-delivery-cost-schema.json",
   "baseDeliveryCost": 100,
   "parcels": [
     {

@@ -1,5 +1,5 @@
 import { chance } from "jest-chance";
-import Coupon from "../src/entities/coupon";
+import Coupon from "./coupon";
 
 describe("Coupon", () => {
   let instance: Coupon;

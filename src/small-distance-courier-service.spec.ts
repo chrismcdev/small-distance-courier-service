@@ -1,4 +1,4 @@
-import SmallDistanceCourierService from "../src/services/small-distance-courier-service";
+import SmallDistanceCourierService from "./small-distance-courier-service";
 import deliveryCostInput from "./__mocks__/fetch-delivery-cost-input.json";
 import deliveryTimeInput from "./__mocks__/fetch-delivery-time-input.json";
 
@@ -15,13 +15,8 @@ describe("SmallDistanceCourierService", () => {
   });
 
   describe("fetchDeliveryTime", () => {
-    const {
-      baseDeliveryCost,
-      noOfVehicles,
-      maxSpeed,
-      maxCarriableWeight,
-      parcels,
-    } = deliveryTimeInput;
+    const { baseDeliveryCost, noOfVehicles, maxSpeed, maxCarriableWeight, parcels } =
+      deliveryTimeInput;
     instance = new SmallDistanceCourierService(baseDeliveryCost, parcels);
 
     it("returns the correct delivery time for each parcel", () => {
