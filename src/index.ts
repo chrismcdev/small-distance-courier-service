@@ -4,7 +4,7 @@ import { readFile } from "fs/promises";
 import SmallDistanceCourierService from "./small-distance-courier-service";
 import estimateDeliveryCostSchema from "./assets/estimate-delivery-cost-schema.json";
 import estimateDeliveryTimeSchema from "./assets/estimate-delivery-time-schema.json";
-import { CliAction, DeliveryCostPayload, DeliveryTimePayload } from "./types";
+import { Action, DeliveryCostPayload, DeliveryTimePayload } from "./types";
 
 const ajv = new Ajv();
 const [action, filePath] = process.argv.slice(2);
@@ -14,7 +14,7 @@ readFile(filePath, { encoding: "utf-8" })
     const data = JSON.parse(file);
 
     // Estimate Delivery Cost
-    if (action === CliAction.GET_DELIVERY_COST) {
+    if (action === Action.ESTIMATE_DELIVERY_COST) {
       const validate = ajv.compile<DeliveryCostPayload>(estimateDeliveryCostSchema);
       if (!validate(data)) {
         return console.error(validate.errors);
@@ -27,7 +27,7 @@ readFile(filePath, { encoding: "utf-8" })
     }
 
     // Estimate Delivery Time
-    if (action === CliAction.GET_DELIVERY_TIME) {
+    if (action === Action.ESTIMATE_DELIVERY_TIME) {
       const validate = ajv.compile<DeliveryTimePayload>(estimateDeliveryTimeSchema);
       if (!validate(data)) {
         return console.error(validate.errors);

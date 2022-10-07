@@ -18,7 +18,7 @@ export default class Shipment {
    * @param parcel The parcel to add.
    * @returns The instance on which this method was called.
    */
-  addParcel(parcel: Parcel): Shipment {
+  public addParcel(parcel: Parcel): Shipment {
     this.parcels.push(parcel);
     return this;
   }
@@ -26,14 +26,14 @@ export default class Shipment {
   /**
    * The total weight of the shipment.
    */
-  get weight(): number {
+  public get weight(): number {
     return this.parcels.reduce<number>((weight, parcel) => weight + parcel.weight, 0);
   }
 
   /**
    * The distance of the furthest parcel.
    */
-  get distance(): number {
+  public get distance(): number {
     return this.parcels.reduce<number>(
       (distance, parcel) => (parcel.distance > distance ? parcel.distance : distance),
       0

@@ -4,9 +4,9 @@ import { ConditionMap, ICoupon } from "../types";
  * Class representing a coupon.
  */
 export default class Coupon {
-  id: string;
-  discount: number;
-  conditions: ConditionMap;
+  public id: string;
+  public discount: number;
+  public conditions: ConditionMap;
 
   /**
    * Create a coupon.
@@ -23,7 +23,7 @@ export default class Coupon {
    * @param conditionValues The condition key value pairs to validate.
    * @returns True if the coupon is valid.
    */
-  isCouponValid(conditionValues: { [conditionName: string]: number }): boolean {
+  public isCouponValid(conditionValues: { [conditionName: string]: number }): boolean {
     return Object.entries(this.conditions).every(([conditionName, [min, max]]) => {
       const value = conditionValues[conditionName];
       return value >= min && value <= max;

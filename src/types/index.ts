@@ -20,9 +20,7 @@ export interface DeliveryCostPayload {
   parcels: IParcel[];
 }
 
-export interface DeliveryTimePayload {
-  baseDeliveryCost: number;
-  parcels: IParcel[];
+export interface DeliveryTimePayload extends DeliveryCostPayload {
   noOfVehicles: number;
   maxSpeed: number;
   maxCarriableWeight: number;
@@ -35,7 +33,7 @@ export interface DispatchedParcel {
   estimatedDeliveryTimeInHours?: number;
 }
 
-export enum CliAction {
-  GET_DELIVERY_TIME = "delivery-time",
-  GET_DELIVERY_COST = "delivery-cost",
+export enum Action {
+  ESTIMATE_DELIVERY_TIME = "delivery-time",
+  ESTIMATE_DELIVERY_COST = "delivery-cost",
 }
