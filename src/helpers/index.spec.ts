@@ -20,7 +20,14 @@ describe("Helpers", () => {
   });
 
   describe("loadParcelsIntoShipments", () => {
-    it(`returns shipments where the remaining weight on a shipment is larger than the proceeding shipments`, () => {
+    it("returns all the parcels loaded into shipments", () => {
+      const maxWeight = chance.integer({ min: 0 });
+      const flatShipmentParcels = loadParcelsIntoShipments(parcels, maxWeight).flatMap(
+        (parcel) => parcel.parcels
+      );
+      expect(flatShipmentParcels.length).toBe(50);
+    });
+    it("returns shipments where the remaining weight on a shipment is larger than the proceeding shipments", () => {
       const maxWeight = chance.integer({ min: 0 });
       loadParcelsIntoShipments(parcels, maxWeight).reduce<number | null>(
         (lastRemainingWeight, { weight }) => {

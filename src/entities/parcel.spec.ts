@@ -1,5 +1,5 @@
 import { chance } from "jest-chance";
-import { COST_PER_KG, COST_PER_KM, COUPONS } from "../constants";
+import { COUPONS } from "../constants";
 import SmallDistanceCourierService from "../small-distance-courier-service";
 import Parcel from "./parcel";
 
@@ -28,16 +28,6 @@ describe("Parcel", () => {
         instance.couponCode = id;
         expect(Reflect.get(instance, "discountPercentage")).toBe(discount);
       });
-    });
-  });
-
-  describe("deliveryCost", () => {
-    it("returns the correct delivery cost", () => {
-      expect(Reflect.get(instance, "deliveryCost")).toBe(
-        service.baseDeliveryCost +
-          instance.weight * COST_PER_KG +
-          instance.distance * COST_PER_KM
-      );
     });
   });
 });
