@@ -1,7 +1,7 @@
 import Coupon from "./models/coupon";
 import Parcel from "./models/parcel";
 import { DispatchedParcel, ICoupon, IParcel } from "./types";
-import { loadParcelsIntoShipments, truncateNumber } from "./helpers";
+import { loadParcelsIntoShipments, truncateNumber } from "./utils";
 import { DEFAULT_COUPONS } from "./constants";
 
 /**

@@ -1,5 +1,5 @@
 import SmallDistanceCourierService from "../small-distance-courier-service";
-import { truncateNumber } from "../helpers";
+import { truncateNumber } from "../utils";
 import { IParcel } from "../types";
 import { COST_PER_KG, COST_PER_KM } from "../constants";
 
