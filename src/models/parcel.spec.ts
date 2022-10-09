@@ -1,5 +1,5 @@
 import { chance } from "jest-chance";
-import { COUPONS } from "../constants";
+import { DEFAULT_COUPONS } from "../constants";
 import SmallDistanceCourierService from "../small-distance-courier-service";
 import Parcel from "./parcel";
 
@@ -18,7 +18,7 @@ describe("Parcel", () => {
   });
 
   describe("discountPercentage", () => {
-    COUPONS.forEach(({ id, discount, conditions: { distance, weight } }) => {
+    DEFAULT_COUPONS.forEach(({ id, discount, conditions: { distance, weight } }) => {
       it(`returns correct discount percentage for ${id} coupon`, () => {
         instance.distance = chance.integer({
           min: distance[0],

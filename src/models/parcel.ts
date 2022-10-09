@@ -15,7 +15,7 @@ export default class Parcel {
 
   /**
    * Create a parcel.
-   * @param context The parent service that instantiated this object.
+   * @param context The parent service that instantiated this class.
    * @param parcel Parcel values.
    */
   constructor(context: SmallDistanceCourierService, parcel: IParcel) {

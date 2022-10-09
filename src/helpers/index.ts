@@ -1,5 +1,5 @@
-import Parcel from "../entities/parcel";
-import Shipment from "../entities/shipment";
+import Parcel from "../models/parcel";
+import Shipment from "../models/shipment";
 
 /**
  * Truncates number to two decimal places, the number will not be rounded.

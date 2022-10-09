@@ -1,8 +1,8 @@
-import Coupon from "./entities/coupon";
-import Parcel from "./entities/parcel";
-import { DispatchedParcel, IParcel } from "./types";
+import Coupon from "./models/coupon";
+import Parcel from "./models/parcel";
+import { DispatchedParcel, ICoupon, IParcel } from "./types";
 import { loadParcelsIntoShipments, truncateNumber } from "./helpers";
-import { COUPONS } from "./constants";
+import { DEFAULT_COUPONS } from "./constants";
 
 /**
  * Class representing the small distance courier service.
@@ -16,10 +16,15 @@ export default class SmallDistanceCourierService {
    * Create the small distance courier service.
    * @param baseDeliveryCost Base delivery cost on all parcels to be dispatched.
    * @param parcels Parcels to be dispatched.
+   * @param coupons Coupons to be available.
    */
-  constructor(baseDeliveryCost: number, parcels: IParcel[]) {
+  constructor(
+    baseDeliveryCost: number,
+    parcels: IParcel[],
+    coupons: ICoupon[] = DEFAULT_COUPONS
+  ) {
     this.baseDeliveryCost = baseDeliveryCost;
-    this.coupons = new Map(COUPONS.map((coupon) => [coupon.id, new Coupon(coupon)]));
+    this.coupons = new Map(coupons.map((coupon) => [coupon.id, new Coupon(coupon)]));
     this.parcels = parcels.map((parcel) => new Parcel(this, parcel));
   }
 

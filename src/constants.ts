@@ -2,7 +2,7 @@ import { ICoupon } from "./types";
 
 export const COST_PER_KG = 10;
 export const COST_PER_KM = 5;
-export const COUPONS: ICoupon[] = [
+export const DEFAULT_COUPONS: ICoupon[] = [
   {
     id: "OFR001",
     discount: 0.1,
