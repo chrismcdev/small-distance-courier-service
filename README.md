@@ -58,5 +58,3 @@ The facade [`SmallDistanceCourierService`](./src/services/small-distance-courier
 The [FFD algorithm](https://en.wikipedia.org/wiki/First-fit-decreasing_bin_packing) is used to decide how many shipments are needed and what parcels to load in each shipment based on weight.
 
 ---
-
-_© 2022 Everest Engineering. All Rights Reserved. For Internal Use Only._
